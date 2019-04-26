@@ -1,0 +1,18 @@
+boot:
+  location: location
+  name: 随便什么
+server:
+  port: 9080
+  servlet:
+    context-path: /boot
+spring:
+  thymeleaf:
+        cache: false
+        cont
+        encoding: UTF-8
+        mode: HTML5
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
