@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Title</title>
+    <script type="text/javascript" th:src="@{/js/index.js}"></script>
+    <script>
+        response();
+        //showTime();
+    </script>
+</head>
+<body>
+    <h2>遍历</h2>
+    <table>
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>name</td>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p: ${catelist}">
+            <td th:text="${p.id}"></td>
+            <td th:text="${p.name}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <!--<div>
+        <h2>select遍历</h2>
+        <select size="1">
+            <option th:each="p:${list}" th:value="${p.id}" th:selected="${p.id == 1}" th:text="${p.id}"></option>
+        </select>
+        <p th:text="${now}"></p>
+        <p th:text="${#dates.format(now)}"></p>
+        <p th:text="${#dates.format(now,'yyyy-MM-dd hh:mm:ss')}"></p>
+    </div>-->
+</body>
+</html>
