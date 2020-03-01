@@ -6,7 +6,10 @@ import com.example.demo.category.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
@@ -36,5 +39,19 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public int update(Category category) {
         return categoryMapper.update(category);
+    }
+
+    @Override
+    public Map test(int num) {
+        Map map = new HashMap();
+        map.put("number","1");
+        categoryMapper.test(map);
+        System.out.println(map.toString());
+        return map;
+    }
+
+    @Override
+    public int secondTest(int num) {
+        return categoryMapper.secondTest(num);
     }
 }

@@ -3,6 +3,7 @@ package com.example.demo.category.service;
 import com.example.demo.category.pojo.Category;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CategoryService{
     List<Category> findAll();
@@ -14,4 +15,8 @@ public interface CategoryService{
     Category get(int id);
 
     int update(Category category);
+
+    Map test(int num);
+
+    int secondTest(int num);
 }

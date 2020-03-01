@@ -5,6 +5,13 @@ server:
   port: 9080
   servlet:
     context-path: /boot
+logging:
+  level:
+    com:
+      example:
+        demo:
+          debug
+  path: F/:\谷歌download\demo\log
 spring:
   datasource:
     url: 'jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8'

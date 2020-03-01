@@ -2,15 +2,19 @@ package com.example.demo.test.controller;
 
 import com.example.demo.test.config.ConfigInfo;
 import com.example.demo.test.pojo.User;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.util.*;
+import javax.sql.DataSource;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 
 @Controller
@@ -23,7 +27,14 @@ public class HelloController {
     private String location;
 
     @Autowired
+    DataSource dataSource;
+
+    @Autowired
+    SqlSessionFactory sqlSessionFactory;
+
+    @Autowired
     private ConfigInfo configInfo;
+    SqlSessionTemplate sqlSessionTemplate;
 
     @RequestMapping("/test/hello")
     private @ResponseBody String hello() throws Exception{
