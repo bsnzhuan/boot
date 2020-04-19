@@ -86,7 +86,7 @@ public class Test{
             ThreadC.count = count;
         }
 
-        private  static void addCount() {
+        private synchronized static void addCount() {
             for (int i = 0; i < 100; i++) {
                 count++;
             }
@@ -95,8 +95,8 @@ public class Test{
 
         @Override
         public void run() {
-            //addCount();
-            operation.addNum();
+            addCount();
+            //operation.addNum();
         }
     }
     class operation{

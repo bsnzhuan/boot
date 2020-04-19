@@ -9,6 +9,7 @@ public class WsHandler implements WebSocketHandler {
     @Override
     public void afterConnectionEstablished(WebSocketSession webSocketSession) throws Exception {
         System.out.println("WsHandler----afterConnectionEstablished");
+        throw new Exception("1111111111");
     }
 
     @Override
