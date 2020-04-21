@@ -1,7 +1,10 @@
 package com.example.demo;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.TimeZone;
 
 public class CodeTest {
     /*public static void main(String[] args) {
@@ -24,7 +27,7 @@ public class CodeTest {
         }
         System.out.println(str);
     }*/
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         Queue<String> queue = new LinkedList<String>();
         //添加元素
         queue.offer("a");
@@ -42,5 +45,11 @@ public class CodeTest {
         }
         System.out.println(queue.element());
 
+    }*/
+    public static void main(String[] args) {
+        LocalDateTime dateTime = LocalDateTime.ofInstant(
+                Instant.ofEpochMilli(System.currentTimeMillis()+1800*1000),
+                TimeZone.getDefault().toZoneId());
+        System.out.println(dateTime);
     }
 }
