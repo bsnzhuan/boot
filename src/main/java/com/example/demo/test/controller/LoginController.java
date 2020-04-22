@@ -28,11 +28,11 @@ public class LoginController {
         System.out.println(param);
         Map map = JSONObject.parseObject(param);
         for (User dataUser : userMap.values()) {
-           if(dataUser.getId() == map.get("id")){
+           if(dataUser.getUserCode().equals(map.get("userCode"))){
                 Map dataMap = new HashMap();
                 dataMap.put("id",map.get("id"));
                 dataMap.put("userName",map.get("name"));
-                dataMap.put("userCode",map.get("iuserCode"));
+                dataMap.put("userCode",map.get("userCode"));
                 String token = JwtUtils.createToken(dataMap);
                 return token;
             }

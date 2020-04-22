@@ -25,6 +25,11 @@ public class JwtUtils {
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
     /**
+     * 前缀
+     */
+    public static final String TOKEN_PREFIX = "Bearer ";
+
+    /**
      * 密钥
      */
     private static final String SECRET = "my_secret";
@@ -45,7 +50,7 @@ public class JwtUtils {
                 .withHeader(headerMap)
                 .withClaim("id",String.valueOf(map.get("id")))
                 .withClaim("userName",map.get("userName"))
-                .withClaim("usercode",map.get("userCode"))
+                .withClaim("userCode",map.get("userCode"))
                 .withExpiresAt(date)
                 .withIssuedAt(new Date())
                 .sign(Algorithm.HMAC256(SECRET));

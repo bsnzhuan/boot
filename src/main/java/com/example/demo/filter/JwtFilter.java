@@ -33,7 +33,8 @@ public class JwtFilter implements Filter {
         resp.setContentType("text/html;charset=UTF-8");
         resp.setCharacterEncoding("UTF-8");
         //获取header中的token
-        String token = req.getParameter("authorization");
+        String token = req.getHeader("authorization");
+        System.out.println(token);
 
         if ("OPTIONS".equals(req.getMethod())) {
             resp.setStatus(HttpServletResponse.SC_OK);
@@ -44,7 +45,7 @@ public class JwtFilter implements Filter {
                 return;
             }
 
-            Map<String, Claim> userData = JwtUtils.verifyToken(token);
+            Map<String, Claim> userData = JwtUtils.verifyToken(token.replace(JwtUtils.TOKEN_PREFIX,""));
             if (userData == null) {
                 resp.getWriter().write("token不合法！");
                 return;
