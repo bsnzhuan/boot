@@ -8,10 +8,13 @@ public class User {
 
     private Integer age;
 
-    public User(Integer id, String name, Integer age) {
+    private String userCode;
+
+    public User(Integer id, String name, Integer age, String userCode) {
         this.id = id;
         this.name = name;
         this.age = age;
+        this.userCode = userCode;
     }
 
     public Integer getId() {
@@ -36,5 +39,13 @@ public class User {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public String getUserCode() {
+        return userCode;
+    }
+
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 }

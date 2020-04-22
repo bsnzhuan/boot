@@ -55,14 +55,14 @@ public class HelloController {
     @RequestMapping("/test/list")
     public String list(Model mode){
         List list = new ArrayList();
-        User user = new User(1,"name",10);
+        /*User user = new User(1,"name",10);
         User user1 = new User(2,"name",10);
         User user2 = new User(3,"name",10);
         User user3 = new User(4,"name",10);
         list.add(user);
         list.add(user1);
         list.add(user2);
-        list.add(user3);
+        list.add(user3);*/
         mode.addAttribute("now",new Date());
         mode.addAttribute("list",list);
         return "list";

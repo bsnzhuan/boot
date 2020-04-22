@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-    @ExceptionHandler(value = Exception.class)
+    /*@ExceptionHandler(value = Exception.class)
     public ModelAndView defaultErrorHandler(HttpServletRequest request,Exception e){
         ModelAndView model = new ModelAndView();
         model.addObject("exception",e);
@@ -18,5 +18,5 @@ public class GlobalExceptionHandler {
         System.out.println("====================================");
         model.setViewName("error");
         return model;
-    }
+    }*/
 }

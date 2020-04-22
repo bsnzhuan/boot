@@ -2,6 +2,7 @@ package com.example.demo.tools;
 
 import com.alibaba.fastjson.JSON;
 import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
@@ -35,19 +36,17 @@ public class JwtUtils {
 
     public static String createToken(Map<String,String> map){
         //过期时间
-        LocalDateTime dateTime = LocalDateTime.ofInstant(
-                Instant.ofEpochMilli(System.currentTimeMillis()+EXPIRATION*1000),
-                TimeZone.getDefault().toZoneId());
+        Date date = new Date(System.currentTimeMillis()+EXPIRATION*1000);
         Map<String, Object> headerMap = new HashMap<>();
         headerMap.put("alg", "HS256");
         headerMap.put("typ", "JWT");
         String token = "";
         token = JWT.create()
                 .withHeader(headerMap)
-                .withClaim("id",map.get("id"))
+                .withClaim("id",String.valueOf(map.get("id")))
                 .withClaim("userName",map.get("userName"))
-                .withClaim("usercode",map.get("usercode"))
-                .withExpiresAt(Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant()))
+                .withClaim("usercode",map.get("userCode"))
+                .withExpiresAt(date)
                 .withIssuedAt(new Date())
                 .sign(Algorithm.HMAC256(SECRET));
         return token;
@@ -59,8 +58,8 @@ public class JwtUtils {
     public static Map<String, Claim> verifyToken(String token) {
         DecodedJWT jwt = null;
         try {
-            //JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SECRET)).build();
-            //jwt = verifier.verify(token);
+            JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SECRET)).build();
+            jwt = verifier.verify(token);
         } catch (Exception e) {
             logger.error(e.getMessage());
             logger.error("token解码异常");
