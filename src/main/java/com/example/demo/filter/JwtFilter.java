@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
 
-@WebFilter(filterName = "JwtFilter",urlPatterns = "/test/*")
+//@WebFilter(filterName = "JwtFilter",urlPatterns = "/test/*")
 public class JwtFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 手动添加过滤器
  */
-//@Configuration
+@Configuration
 public class WebFilterConfig {
     @Bean
     public RemoteIpFilter remoteIpFilter(){

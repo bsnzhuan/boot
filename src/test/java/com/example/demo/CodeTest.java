@@ -27,29 +27,14 @@ public class CodeTest {
         }
         System.out.println(str);
     }*/
-    /*public static void main(String[] args) {
-        Queue<String> queue = new LinkedList<String>();
-        //添加元素
-        queue.offer("a");
-        queue.offer("b");
-        queue.offer("c");
-        queue.offer("d");
-        queue.offer("e");
-        while(queue.peek() != null){
-            String str = queue.poll();
-            if("a".equals(str)){
 
-            }else{
-                queue.offer(str);
-            }
-        }
-        System.out.println(queue.element());
-
-    }*/
     public static void main(String[] args) {
-        LocalDateTime dateTime = LocalDateTime.ofInstant(
-                Instant.ofEpochMilli(System.currentTimeMillis()+1800*1000),
-                TimeZone.getDefault().toZoneId());
-        System.out.println(dateTime);
+        int a = 5;
+        int b = 7;
+        a = a ^ b;
+        b = b ^ a;
+        a = a ^ b;
+        System.out.println(a);
+        System.out.println(b);
     }
 }
