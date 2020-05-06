@@ -5,6 +5,6 @@ import java.lang.annotation.*;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface JwtParseToken {
+public @interface JwtPassToken {
     boolean required() default true;
 }

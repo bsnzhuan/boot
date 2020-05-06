@@ -1,27 +1,16 @@
-package com.example.demo.filter;
+package com.example.demo.interceptor;
 
-import com.example.demo.anno.JwtParseToken;
-import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.lang.reflect.Method;
 
-public class JwtWithParseTokenINterceptor implements HandlerInterceptor {
+public class MyInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        HandlerMethod handlerMethod = (HandlerMethod)handler;
-        Method method = handlerMethod.getMethod();
-        if(method.isAnnotationPresent(JwtParseToken.class)){
-            JwtParseToken parseToken = method.getAnnotation(JwtParseToken.class);
-            if(parseToken.required()){
-                return true;
-            }
-        }
-        
-        return false;
+        System.out.println("this is MyInterceptor,url:"+request.getRequestURI());
+        return true;
     }
 
     @Override

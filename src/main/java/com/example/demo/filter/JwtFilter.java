@@ -34,7 +34,6 @@ public class JwtFilter implements Filter {
         resp.setCharacterEncoding("UTF-8");
         //获取header中的token
         String token = req.getHeader("authorization");
-        System.out.println(token);
 
         if ("OPTIONS".equals(req.getMethod())) {
             resp.setStatus(HttpServletResponse.SC_OK);

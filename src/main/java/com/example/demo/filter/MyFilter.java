@@ -9,8 +9,9 @@ import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-@WebFilter(filterName = "MyFilterAnno",urlPatterns = "/*"
+/*@WebFilter(filterName = "MyFilterAnno",urlPatterns = "/*"
         ,initParams = {@WebInitParam(name="paramName",value="paramValue")})
+*/
 public class MyFilter implements Filter {
 
     @Override

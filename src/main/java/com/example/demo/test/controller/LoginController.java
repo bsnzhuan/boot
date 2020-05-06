@@ -1,6 +1,7 @@
 package com.example.demo.test.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.example.demo.anno.JwtPassToken;
 import com.example.demo.test.pojo.User;
 import com.example.demo.tools.JwtUtils;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,7 @@ public class LoginController {
         userMap.put(2,user1);
     }
 
+    @JwtPassToken
     @RequestMapping("/login")
     @ResponseBody
     public String login(@RequestParam(value="data") String param){

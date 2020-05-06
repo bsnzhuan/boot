@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.example.demo.filter;
 
 import com.example.demo.filter.MyFilter;
 import org.apache.catalina.filters.RemoteIpFilter;
@@ -7,18 +7,22 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * 手动添加过滤器
+ * 过滤器基于Servlet实现
  */
-@Configuration
+//@Configuration
 public class WebFilterConfig {
     @Bean
     public RemoteIpFilter remoteIpFilter(){
         return new RemoteIpFilter();
     }
 
+    /**
+     * 全局攔截
+     * @return
+     */
     @Bean
-    public FilterRegistrationBean testFilterRegistration(){
-        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+    public FilterRegistrationBean<MyFilter> testFilterRegistration(){
+        FilterRegistrationBean<MyFilter> registrationBean = new FilterRegistrationBean<MyFilter>();
         registrationBean.setFilter(new MyFilter());
         registrationBean.addUrlPatterns("/*");
         registrationBean.addInitParameter("paramName","paramValue");
